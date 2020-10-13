@@ -1,27 +1,5 @@
-# 一、网站效果展示：
-①公共模块（包括标题logo、搜索框、登录与注册按钮、页面导航栏，位于各个页面的顶部）：
- ![公共模块](https://github.com/gh877916059/drf-Vue-website/raw/master/pictures/公共模块.png)
- 
-②首页：
- ![首页1](https://github.com/gh877916059/drf-Vue-website/raw/master/pictures/首页1.png)
- 
-![首页2](https://github.com/gh877916059/drf-Vue-website/raw/master/pictures/首页2.png)
-
-③案例详情页：
- ![案例详情页](https://github.com/gh877916059/drf-Vue-website/raw/master/pictures/案例详情页.png)
-
-④案例编辑页：
- 
-![案例编辑页1](https://github.com/gh877916059/drf-Vue-website/raw/master/pictures/案例编辑页1.png)
- 
-![案例编辑页2](https://github.com/gh877916059/drf-Vue-website/raw/master/pictures/案例编辑页2.png)
- 
- ![案例编辑页3](https://github.com/gh877916059/drf-Vue-website/raw/master/pictures/案例编辑页3.png)
-
-⑤问题相关页面：
- ![问题相关页面](https://github.com/gh877916059/drf-Vue-website/raw/master/pictures/问题相关页面.png)
-
-# 二、后端项目（back-end-src目录）
+# Vue.js+Django 
+# 一、后端项目（back-end-src目录）
 
 ## 1. 架构说明
 
@@ -41,7 +19,7 @@
 
 ③`tool_scripts/switch_setting.py`用于将`tool_scripts/data/db_backup`目录下制定文件（如`local.py`）替换到`APP_Inventor_case_base/settings.py`上
 
-# 三、前端项目（front-end-src目录）
+# 二、前端项目（front-end-src目录）
 
 ## 1. 架构说明
 
@@ -53,29 +31,3 @@
 
 1. 环境搭建。安装好`node.js`后，命令行运行`npm install`
 2. 启动前端程序。命令行运行`npm run dev`
-
-# 四、运维和部署脚本（operation-and-deployment-src目录）
-
-## 1. 架构说明
-
-1. fabric
-2. Supervisor（将`operation-and-deployment-src/supervisor/ProgrammingCases.conf`拷贝到`/etc/supervisor/conf.d/`目录下）
-3. ​Nginx（配置文件请见`operation-and-deployment-src/nginx/ProgrammingCases`）
-
-## 2. 使用教程（下面的命令皆以operation-and-deployment-src为当前目录运行）
-
-1. `fabfile.py`为fabric部署脚本，命令行运行`fab 函数名`即可执行对应操作
-2. `fab remoteBackupDB`将**服务器数据库**进行备份（仅对`_BACKUP_TABLES`中包含的表），然后把备份数据打包下载到本地
-3. `fab localBackupDB`将**本地数据库**进行备份（仅对`_BACKUP_TABLES`中包含的表）
-4. `fab localRestoreDB`利用数据库备份文件和`Django`的`migration`功能对**本地数据库**进行恢复
-5. `fab remoteRestoreDB`利用数据库备份文件和`Django`的`migration`功能对**服务器数据库**进行恢复
-6. `fab build`使用webpack将前端代码进行编译压缩，然后将前后端项目代码进行打包，用作备份或者上传服务器进行部署
-7. `fab deploy`将在本地打包好的项目代码上传到服务器然后再解包
-8. `fab rollback`项目代码回退到上一个版本，并重启任务
-9. `fab startServer`利用Supervisor启动网站
-10. `fab stopServer`利用Supervisor停止网站的运行
-11. `fab checkServer`利用Supervisor查看当前网站的运行状态
-
-# 五、补充说明
-
-1. `github_commit.sh`是一个非常强大的脚本，只要在命令行输入`.github_commit.sh "你的注释"`即可完成代码的提交（最重要的是把所有敏感的服务器和数据库配置信息统统替换掉，然后再上传到github，上传完成后再还原回来）
