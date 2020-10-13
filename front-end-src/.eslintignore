@@ -1,0 +1,14 @@
+server.js
+gulpfile.js
+webpack.config.js
+src/libs/llqrcode.js
+src/libs/zepto.js
+build/
+config/
+src/assets/js/**/*.js
+src/assets/css/**/*.css
+src/assets/umeditor/third-party/template.min.js
+src/assets/umeditor/umeditor.config.js
+src/assets/umeditor/umeditor.js
+src/assets/umeditor/lang/zh-cn/zh-cn.js
+*.vue
